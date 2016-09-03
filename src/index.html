@@ -28,7 +28,7 @@
 
             $("#btn").click(function(){
                 var chatText = $("#txt1").val() +"<p>";
-                $("#chat").append('<p style="color: blue;">'+chatText+'</p>');
+                $("#chat").append('<p style="color:blue;">'+chatText+'</p>');
                 PUBNUB_demo.publish({
                     channel: 'chat',
                     message: chatText
@@ -39,7 +39,7 @@
                 channel : 'feed',
                 message : function(m){
                     console.log("feeding this to publisher"+ m);
-                    $("#chat").append('<p style="color: orange;">'+m+'</p>');
+                    $("#chat").append('<p style="color:orange;">'+m+'</p>');
                 }
             });
 
