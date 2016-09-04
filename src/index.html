@@ -29,7 +29,7 @@
 
             $("#btn").click(function(){
                 var chatText = $("#txt1").val() +"<p>";
-                $("#chat").append('<p style="color:blue;">'+chatText+'</p>');
+                $("#chat").append('<div align="right"><p style="color:blue;">'+chatText+'</p></div>');
                 PUBNUB_demo.publish({
                     channel: 'chat',
                     message: chatText
@@ -39,8 +39,7 @@
             PUBNUB_demo.subscribe({
                 channel : 'feed',
                 message : function(m){
-                    console.log("feeding this to publisher"+ m);
-                    $("#chat").append('<p style="color:orange;">'+m+'</p>');
+                    $("#chat").append('<div align="left"><p style="color:orangered;">'+m+'</p></div>');
                 }
             });
 
@@ -68,8 +67,8 @@
     <h1>School Administrator</h1>
     <div id="chat" style="color: orange;"></div>
     <div class="form-group">
-        <label for="comment">Send a Notification:</label>
-        <textarea id="txt1" class="form-control" rows="5" id="comment"></textarea>
+        <label for="txt1">Send a Notification:</label>
+        <textarea id="txt1" class="form-control" rows="5"></textarea>
     </div>
     <button id="btn" type="button"  class="btn btn-primary">Send</button>
     <div id="feed" style="color: red;"></div>

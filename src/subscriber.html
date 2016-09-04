@@ -32,7 +32,7 @@
             PUBNUB_demo.subscribe({
                 channel : 'chat',
                 message : function(m){
-                    $("#chat").append('<p style="color: blue">'+m+'</p>');
+                    $("#chat").append('<div align="left"><p style="color: orangered">'+m+'</p></div>');
 
                 }
             });
@@ -56,7 +56,7 @@
 
             $("#btn").click(function(){
                 var chatText = $("#txt1").val() +"<p>";
-                $("#chat").append('<p style="color: darkorange;">'+chatText+'</p>');
+                $("#chat").append('<div align="right"><p style="color: blue;">'+chatText+'</p></div>');
                 PUBNUB_demo.publish({
                     channel: 'feed',
                     message: chatText
